@@ -108,5 +108,32 @@ SELECT first_name, last_name
 FROM employees
 WHERE first_name = 'Hercules'
 and last_name LIKE 'B%';
-*/
+
 --q6
+SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
+FROM dept_emp
+JOIN employees
+ON dept_emp.emp_no = employees.emp_no
+JOIN departments
+ON dept_emp.dept_no = departments.dept_no
+WHERE departments.dept_name = 'Sales'
+
+--q7
+SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
+FROM dept_emp
+JOIN employees
+ON dept_emp.emp_no = employees.emp_no
+JOIN departments
+ON dept_emp.dept_no = departments.dept_no
+WHERE departments.dept_name = 'Sales'
+OR departments.dept_name = 'Development'
+
+--q8
+SELECT last_name,
+COUNT(last_name) AS "Freq"
+FROM employees
+GROUP BY last_name
+ORDER BY "Freq" DESC;
+*/
+
+
